@@ -1,0 +1,179 @@
+<div class="user-details-container">
+
+    <div class="back-btn-wrapper">
+        <button type="button" class="btn btn-light btn-sm" routerLink="/">
+            <span class="material-icons">
+                arrow_back_ios
+            </span>
+            Back
+        </button>
+    </div>
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmitUser()">
+        <div class="form-wrapper">
+            <div class="img-wrapper">
+                <img [src]="user.avatarUrl || defaultAvatarUrl">
+
+                <div class="uploader" *ngIf="!user.avatarUrl">
+                    <p-fileUpload name="myfile[]" customUpload="true" (uploadHandler)="uploadAvatar($event)" auto="true"
+                        mode="basic" chooseLabel="Upload" class="p-fileUpload-sm">
+                    </p-fileUpload>
+                </div>
+
+                <div class="delete-btn" *ngIf="user.avatarUrl">
+                    <button pButton pRipple type="button" icon="pi pi-times" label="Delete" class="p-button-danger"
+                        (click)="deleteImg()"></button>
+                </div>
+            </div>
+
+            <div class="inputs-container">
+
+                <div class="input">
+                    <input type="text" pInputText class="p-inputtext-sm" placeholder="Firstname"
+                        formControlName="firstname">
+                    <div class="validator"
+                        *ngIf="userForm.get('firstname').invalid && userForm.get('firstname').errors && (userForm.get('firstname').dirty || userForm.get('firstname').touched)">
+                        <small class="text-danger" *ngIf="userForm.get('firstname').hasError('required')">
+                            This field is required.
+                        </small>
+                        <small class="text-danger" *ngIf="userForm.get('firstname').hasError('minlength')">
+                            The minimum length for this field is
+                            {{userForm.get('firstname').errors.minlength.requiredLength}} characters.
+                        </small>
+                        <small class="text-danger" *ngIf="userForm.get('firstname').hasError('maxlength')">
+                            The maximum length for this field is
+                            {{userForm.get('firstname').errors.maxlength.requiredLength}} characters.
+                        </small>
+                        <small class="text-danger" *ngIf="userForm.get('firstname').hasError('pattern')">
+                            Choose only Latin characters
+                        </small>
+                    </div>
+                </div>
+
+                <div class="input">
+                    <input type="text" pInputText class="p-inputtext-sm" placeholder="Lastname"
+                        formControlName="lastname">
+                    <div class="validator"
+                        *ngIf="userForm.get('lastname').invalid && userForm.get('lastname').errors && (userForm.get('lastname').dirty || userForm.get('lastname').touched)">
+                        <small class="text-danger" *ngIf="userForm.get('lastname').hasError('required')">
+                            This field is required.
+                        </small>
+                        <small class="text-danger" *ngIf="userForm.get('lastname').hasError('minlength')">
+                            The minimum length for this field is
+                            {{userForm.get('lastname').errors.minlength.requiredLength}} characters.
+                        </small>
+                        <small class="text-danger" *ngIf="userForm.get('lastname').hasError('maxlength')">
+                            The maximum length for this field is
+                            {{userForm.get('lastname').errors.maxlength.requiredLength}} characters.
+                        </small>
+                        <small class="text-danger" *ngIf="userForm.get('lastname').hasError('pattern')">
+                            Choose only Latin characters
+                        </small>
+                    </div>
+                </div>
+
+                <div class="input ">
+                    <p-dropdown [options]="genders" formControlName="gender" placeholder="Gender" optionLabel="label">
+                    </p-dropdown>
+                    <div class="validator"
+                        *ngIf="userForm.get('gender').invalid && userForm.get('gender').errors && (userForm.get('gender').dirty || userForm.get('gender').touched)">
+                        <small class="text-danger" *ngIf="userForm.get('gender').hasError('required')">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="input">
+                    <input type="text" pInputText class="p-inputtext-sm" placeholder="Personal Id" maxlength="11"
+                        formControlName="personalId">
+                    <div class="validator"
+                        *ngIf="userForm.get('personalId').invalid && userForm.get('personalId').errors && (userForm.get('personalId').dirty || userForm.get('personalId').touched)">
+                        <small class="text-danger" *ngIf="userForm.get('personalId').hasError('required')">
+                            This field is required.
+                        </small>
+                        <small class="text-danger" *ngIf="userForm.get('personalId').hasError('minlength')">
+                            The minimum length for this field is
+                            {{userForm.get('personalId').errors.minlength.requiredLength}} characters.
+                        </small>
+                        <small class="text-danger" *ngIf="userForm.get('personalId').hasError('maxlength')">
+                            The maximum length for this field is
+                            {{userForm.get('personalId').errors.maxlength.requiredLength}} characters.
+                        </small>
+                        <small class="text-danger" *ngIf="userForm.get('personalId').hasError('pattern')">
+                            Choose only numbers
+                        </small>
+                    </div>
+                </div>
+
+                <div class="input">
+                    <input type="text" pInputText class="p-inputtext-sm" placeholder="Phone Number" maxlength="9"
+                        formControlName="phoneNumber">
+                    <div class="validator"
+                        *ngIf="userForm.get('phoneNumber').invalid && userForm.get('phoneNumber').errors && (userForm.get('phoneNumber').dirty || userForm.get('phoneNumber').touched)">
+                        <small class="text-danger" *ngIf="userForm.get('phoneNumber').hasError('required')">
+                            This field is required.
+                        </small>
+                        <small class="text-danger" *ngIf="userForm.get('phoneNumber').hasError('minlength')">
+                            The minimum length for this field is
+                            {{userForm.get('phoneNumber').errors.minlength.requiredLength}} characters.
+                        </small>
+                        <small class="text-danger" *ngIf="userForm.get('phoneNumber').hasError('maxlength')">
+                            The maximum length for this field is
+                            {{userForm.get('phoneNumber').errors.maxlength.requiredLength}} characters.
+                        </small>
+                        <small class="text-danger" *ngIf="userForm.get('phoneNumber').hasError('pattern')">
+                            Choose only numbers
+                        </small>
+                    </div>
+                </div>
+
+                <ng-container formGroupName="legalAddress">
+
+                    <div class="input">
+                        <input type="text" pInputText class="p-inputtext-sm" placeholder="Country"
+                            formControlName="country">
+                        <div class="validator"
+                            *ngIf="userForm.get('gender').invalid && userForm.get('gender').errors && (userForm.get('gender').dirty || userForm.get('gender').touched)">
+                            <small class="text-danger" *ngIf="userForm.get('gender').hasError('required')">
+                                Choose only Latin characters
+                            </small>
+                            <small class="text-danger" *ngIf="userForm.get('lastname').hasError('pattern')">
+                                Choose only Latin characters
+                            </small>
+                        </div>
+                    </div>
+                    <div class="input">
+                        <input type="text" pInputText class="p-inputtext-sm" placeholder="City" formControlName="city">
+                        <div class="validator"
+                            *ngIf="userForm.get('gender').invalid && userForm.get('gender').errors && (userForm.get('gender').dirty || userForm.get('gender').touched)">
+                            <small class="text-danger" *ngIf="userForm.get('gender').hasError('required')">
+                                This field is required.
+                            </small>
+                            <small class="text-danger" *ngIf="userForm.get('lastname').hasError('pattern')">
+                                Must be English characters
+                            </small>
+                        </div>
+                    </div>
+                    <div class="input">
+                        <input type="text" pInputText class="p-inputtext-sm" placeholder="Address"
+                            formControlName="address">
+                        <div class="validator"
+                            *ngIf="userForm.get('gender').invalid && userForm.get('gender').errors && (userForm.get('gender').dirty || userForm.get('gender').touched)">
+                            <small class="text-danger" *ngIf="userForm.get('gender').hasError('required')">
+                                This field is required.
+                            </small>
+                        </div>
+                    </div>
+
+                </ng-container>
+
+                <div class="btn-wrapper">
+                    <button type="submit" class="btn btn-success btn-sm" [disabled]="userForm.invalid">Save</button>
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+
+</div>

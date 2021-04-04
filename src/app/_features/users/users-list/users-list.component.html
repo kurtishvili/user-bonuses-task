@@ -1,0 +1,32 @@
+<div class="users-list-container">
+    <table class="table  table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Firstname</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Gender</th>
+                <th>Personal Id</th>
+                <th>Phone Number</th>
+                <th style="width: 100px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>
+                    <div class="img-wrapper"><img [src]="user.avatarUrl || defaultAvatarUrl" [routerLink]="user.id">
+                    </div>
+                </td>
+                <td>{{user.firstname}} </td>
+                <td>{{user.lastname}} </td>
+                <td>{{user.gender.label}}</td>
+                <td> {{user.personalId}} </td>
+                <td> {{user.phoneNumber}} </td>
+                <td style="display: flex;">
+                    <i class="pi pi-pencil" [routerLink]="user.id"></i>
+                    <i class="pi pi-trash" (click)="deleteUser(user.id)"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

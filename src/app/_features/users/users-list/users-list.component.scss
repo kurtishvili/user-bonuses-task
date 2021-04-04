@@ -1,0 +1,23 @@
+.users-list-container {
+    height: calc(100vh - 170px);
+    overflow: auto;
+    position: relative;
+    border-collapse: collapse;
+    padding: 0px 10px;
+
+    i {
+        margin-left: 10px;
+        cursor: pointer;
+    }
+
+    .img-wrapper {
+        width: 50px;
+        cursor: pointer;
+        outline: none;
+
+        img {
+            max-width: 100%;
+            outline: none;
+        }
+    }
+}

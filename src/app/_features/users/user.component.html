@@ -1,0 +1,19 @@
+<div class="users-container">
+
+    <div class="user-filter-wrapper">
+        <app-user-filter (onFilter)="filterUserList($event)"></app-user-filter>
+    </div>
+
+    <div class="btn-wrapper">
+        <button type="button" class="btn btn-success btn-sm" routerLink="0">Add User</button>
+    </div>
+
+    <div class="user-list-wrapper">
+        <app-user-list [users]="users$ | async" (onDelete)="deleteUser($event)"></app-user-list>
+    </div>
+</div>
+
+<p-paginator [rows]="paginator.pageSize" [totalRecords]="paginator.totalRecords"
+    [rowsPerPageOptions]="paginator.options" (onPageChange)="onPaginate($event)"></p-paginator>
+
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

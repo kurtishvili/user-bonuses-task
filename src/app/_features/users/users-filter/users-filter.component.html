@@ -1,0 +1,28 @@
+<div class="filter-container">
+
+    <form [formGroup]="userFilterForm" (ngSubmit)="onSubmit()">
+        <div class="form-wrapper">
+            <div class="form-input">
+                <input type="text" pInputText class="p-inputtext-sm" placeholder="Firstname"
+                    formControlName="firstname">
+            </div>
+            <div class="form-input">
+                <input type="text" pInputText class="p-inputtext-sm" placeholder="Lastname" formControlName="lastname">
+            </div>
+            <div class="form-input">
+                <input type="text" pInputText class="p-inputtext-sm" placeholder="Personal Id"
+                    formControlName="personalId" maxlength="11">
+            </div>
+            <div class="form-input">
+                <input type="text" pInputText class="p-inputtext-sm" placeholder="Phone Number"
+                    formControlName="phoneNumber" maxlength="11">
+
+            </div>
+            <div class="btn-wrapper">
+                <button type="button" class="btn btn-primary btn-sm" (click)="clearForm()">Clear</button>
+                <button type="submit" class="btn btn-success btn-sm">Search</button>
+            </div>
+        </div>
+    </form>
+
+</div>

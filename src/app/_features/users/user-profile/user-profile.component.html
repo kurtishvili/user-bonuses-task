@@ -1,0 +1,9 @@
+<div class="user-details">
+    <app-user-details [user]="user" (onSaveUser)="saveUser($event)"></app-user-details>
+</div>
+
+<div class="user-bonuses" *ngIf="user.id">
+    <app-user-bonuses #userBonuses [bonuses]="bonuses" (onAddBonus)="addUserBonus($event)"
+        (onDeleteBonus)="deleteBonus($event)">
+    </app-user-bonuses>
+</div>

@@ -1,0 +1,49 @@
+.bonus-container {
+    padding: 10px;
+
+    .btn-wrapper {
+        padding: 5px 0px;
+    }
+
+    .bonus-table-wrapper {
+        width: 400px;
+        position: relative;
+        border-collapse: collapse;
+        overflow: auto;
+        height: calc(100vh - 310px);
+
+        i {
+            cursor: pointer;
+        }
+    }
+
+    .dialog-wrapper {
+        min-width: 200px;
+
+        .bonus-form-wrapper {
+            display: flex;
+            flex-direction: column;
+
+            .bonus-form-input {
+                width: 210px;
+                padding: 12px;
+
+                input {
+                    padding: 10px !important;
+                }
+            }
+
+            .validator {
+                color: red;
+                font-family: monospace;
+                font-size: 11px;
+                position: absolute;
+                width: 190px;
+            }
+
+            .bonus-save-btn {
+                padding: 10px;
+            }
+        }
+    }
+}
