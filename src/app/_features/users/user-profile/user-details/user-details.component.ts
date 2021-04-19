@@ -62,7 +62,7 @@ export class UserDetailsComponent implements OnChanges {
         Validators.maxLength(9),
         Validators.pattern(/^[0-9]\d*$/)]
       ],
-      avatar: [''],
+      avatarUrl: [''],
       legalAddress: this.fb.group({
         country: ['',
           [Validators.required,

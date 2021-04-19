@@ -132,35 +132,47 @@
                     <div class="input">
                         <input type="text" pInputText class="p-inputtext-sm" placeholder="Country"
                             formControlName="country">
-                        <div class="validator"
-                            *ngIf="userForm.get('gender').invalid && userForm.get('gender').errors && (userForm.get('gender').dirty || userForm.get('gender').touched)">
-                            <small class="text-danger" *ngIf="userForm.get('gender').hasError('required')">
-                                Choose only Latin characters
+                        <div class="validator" *ngIf="userForm['controls'].legalAddress['controls'].country.invalid 
+                            && userForm['controls'].legalAddress['controls'].country.errors 
+                            && (userForm['controls'].legalAddress['controls'].country.dirty 
+                            || userForm['controls'].legalAddress['controls'].country.touched)">
+                            <small class="text-danger"
+                                *ngIf="userForm['controls'].legalAddress['controls'].country.hasError('required')">
+                                This field is required
                             </small>
-                            <small class="text-danger" *ngIf="userForm.get('lastname').hasError('pattern')">
+                            <small class="text-danger"
+                                *ngIf="userForm['controls'].legalAddress['controls'].country.hasError('pattern')">
                                 Choose only Latin characters
                             </small>
                         </div>
                     </div>
                     <div class="input">
                         <input type="text" pInputText class="p-inputtext-sm" placeholder="City" formControlName="city">
-                        <div class="validator"
-                            *ngIf="userForm.get('gender').invalid && userForm.get('gender').errors && (userForm.get('gender').dirty || userForm.get('gender').touched)">
-                            <small class="text-danger" *ngIf="userForm.get('gender').hasError('required')">
-                                This field is required.
+                        <div class="validator" *ngIf="userForm['controls'].legalAddress['controls'].city.invalid 
+                        && userForm['controls'].legalAddress['controls'].city.errors 
+                        && (userForm['controls'].legalAddress['controls'].city.dirty 
+                        || userForm['controls'].legalAddress['controls'].city.touched)">
+                            <small class="text-danger"
+                                *ngIf="userForm['controls'].legalAddress['controls'].city.hasError('required')">
+                                This field is required
                             </small>
-                            <small class="text-danger" *ngIf="userForm.get('lastname').hasError('pattern')">
-                                Must be English characters
+                            <small class="text-danger"
+                                *ngIf="userForm['controls'].legalAddress['controls'].city.hasError('pattern')">
+                                Choose only Latin characters
                             </small>
                         </div>
                     </div>
+
                     <div class="input">
                         <input type="text" pInputText class="p-inputtext-sm" placeholder="Address"
                             formControlName="address">
-                        <div class="validator"
-                            *ngIf="userForm.get('gender').invalid && userForm.get('gender').errors && (userForm.get('gender').dirty || userForm.get('gender').touched)">
-                            <small class="text-danger" *ngIf="userForm.get('gender').hasError('required')">
-                                This field is required.
+                        <div class="validator" *ngIf="userForm['controls'].legalAddress['controls'].address.invalid 
+                            && userForm['controls'].legalAddress['controls'].address.errors 
+                            && (userForm['controls'].legalAddress['controls'].address.dirty 
+                            || userForm['controls'].legalAddress['controls'].address.touched)">
+                            <small class="text-danger"
+                                *ngIf="userForm['controls'].legalAddress['controls'].address.hasError('required')">
+                                This field is required
                             </small>
                         </div>
                     </div>

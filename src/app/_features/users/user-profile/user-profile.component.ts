@@ -28,8 +28,14 @@ export class UserProfileComponent implements OnInit {
     private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
-    this.user = this.activatedRoute.snapshot.data.user.user;
-    this.bonuses = this.activatedRoute.snapshot.data.user.bonuses;
+    this.activatedRoute.data.subscribe(
+      response => { 
+        this.user = response.user.user
+        this.bonuses = response.user.bonuses
+      }
+    )
+    //  this.user = this.activatedRoute.snapshot.data.user.user;
+    //  this.bonuses = this.activatedRoute.snapshot.data.user.bonuses;
   }
 
   saveUser(user: User) {

@@ -37,7 +37,7 @@
 
                     <div class="bonus-form-input">
                         <p-dropdown [options]="bonusTypes" formControlName="bonusType" placeholder="Bonus Type"
-                            optionLabel="label" (onChange)="bonusTypeOnChange($event)">
+                            optionLabel="label" (onChange)="bonusTypeOnChange()">
                         </p-dropdown>
                         <div class="validator"
                             *ngIf="bonusForm.get('bonusType').invalid && bonusForm.get('bonusType').errors && (bonusForm.get('bonusType').dirty || bonusForm.get('bonusType').touched)">
@@ -51,6 +51,12 @@
                         <p-dropdown [options]="currencies" formControlName="currency" placeholder="Currency"
                             optionLabel="label">
                         </p-dropdown>
+                        <div class="validator"
+                        *ngIf="bonusForm.get('currency').invalid && bonusForm.get('currency').errors && (bonusForm.get('currency').dirty || bonusForm.get('currency').touched)">
+                        <small class="text-danger" *ngIf="bonusForm.get('currency').hasError('required')">
+                            This field is required.
+                        </small>
+                    </div>
                     </div>
 
                     <div class="bonus-form-input">

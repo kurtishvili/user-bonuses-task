@@ -21,6 +21,8 @@ export class UserComponent implements OnInit {
   userFilter: Userfilter = {};
   paginator: PaginatorModel = new PaginatorModel(0, 10);
 
+
+
   constructor(
     private store: Store<AppState>,
     private userSerivce: UserService,

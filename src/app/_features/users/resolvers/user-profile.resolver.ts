@@ -35,3 +35,4 @@ export class UserResolver implements Resolve<any> {
             .pipe(catchError(error => of(emptyData)))
     }
 }
+

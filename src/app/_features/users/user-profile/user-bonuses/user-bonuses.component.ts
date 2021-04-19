@@ -67,16 +67,16 @@ export class UserBonusesComponent {
     return bonusType == BonusType.Money;
   }
 
-  bonusTypeOnChange(evnt) {
+  bonusTypeOnChange() {
     const bonusType: SelectItem = this.bonusForm.get('bonusType').value
-    const currenyControl = this.bonusForm.get('currency');
+    const currencyControl = this.bonusForm.get('currency');
 
     if (bonusType.value == BonusType.Money) {
-      currenyControl.setValidators(Validators.required);
+      currencyControl.setValidators(Validators.required);
     } else {
-      currenyControl.clearValidators();
+      currencyControl.clearValidators();
     }
 
-    currenyControl.updateValueAndValidity();
+    currencyControl.updateValueAndValidity();
   }
 }
