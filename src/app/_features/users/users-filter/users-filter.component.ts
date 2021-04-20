@@ -13,11 +13,6 @@ export class UserFilterComponent implements OnInit {
   @Output('onFilter')
   onFilter: EventEmitter<Userfilter> = new EventEmitter();
 
-  genders: SelectItem[] = [
-    { value: 1, label: "Male" },
-    { value: 2, label: 'Female' }
-  ]
-
   selectedGender: string;
 
   userFilterForm: FormGroup;

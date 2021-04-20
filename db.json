@@ -1,4 +1,21 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": 1,
+      "firstname": "Giorgi",
+      "lastname": "Kurtishvili",
+      "gender": {
+        "value": 1,
+        "label": "Male"
+      },
+      "personalId": "21212121212",
+      "phoneNumber": "599057773",
+      "legalAddress": {
+        "country": "Georgia",
+        "city": "Tbilisi",
+        "address": "Vashlijvari Topuridze street 13a  Giorgi Kurtishvili"
+      }
+    }
+  ],
   "bonuses": []
 }

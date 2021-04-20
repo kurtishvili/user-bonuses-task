@@ -5,7 +5,7 @@ import { Injectable } from "@angular/core";
 })
 export class UtilityService {
 
-    objectToQueryString(obj: any): string {
+    objectToQueryString(obj : any): string {
         const params = new URLSearchParams();
 
         for (var field in obj) {
